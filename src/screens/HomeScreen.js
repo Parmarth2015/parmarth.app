@@ -97,7 +97,7 @@ const impactData = [
   {
     title: "STUDENTS",
     count: 200,
-    description: "Hundreds of students are studying in our club.",
+    description: "Hundreds of students actively engage in learning, and making a difference through our club.",
     icon: "graduation-cap",
   },
   {
