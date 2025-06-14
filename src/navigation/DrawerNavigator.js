@@ -48,6 +48,7 @@ const CustomDrawerContent = (props) => {
   const [otp, setOtp] = useState("");
   const [otpSent, setOtpSent] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   // Reset states when drawer closes or auth state changes
   useEffect(() => {
@@ -230,13 +231,25 @@ const CustomDrawerContent = (props) => {
             value={email}
             onChangeText={setEmail}
           />
-          <TextInput
-            placeholder="Enter your password"
-            style={styles.input}
-            secureTextEntry
-            value={password}
-            onChangeText={setPassword}
-          />
+          <View style={styles.passwordContainer}>
+            <TextInput
+              placeholder="Enter your password"
+              style={[styles.input, { paddingRight: 40 }]}
+              secureTextEntry={!showPassword}
+              value={password}
+              onChangeText={setPassword}
+            />
+            <TouchableOpacity 
+              style={styles.eyeIcon}
+              onPress={() => setShowPassword(!showPassword)}
+            >
+              <Ionicons
+                name={showPassword ? "eye-off-outline" : "eye-outline"}
+                size={20}
+                color="#666"
+              />
+            </TouchableOpacity>
+          </View>
           <TouchableOpacity
             onPress={() => loginHandler("password")}
             style={styles.authButton}
@@ -558,8 +571,8 @@ const styles = StyleSheet.create({
   drawerStyle: {
     backgroundColor: "rgba(255, 255, 255, 0.95)",
     width: 270,
-    borderTopRightRadius: 20,
-    borderBottomRightRadius: 20,
+    borderTopRightRadius: 0,
+    borderBottomRightRadius: 0,
     shadowColor: "#000",
     shadowOpacity: 0.15,
     shadowOffset: { width: -2, height: 2 },
@@ -644,5 +657,15 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+  },
+  passwordContainer: {
+    position: 'relative',
+    marginBottom: 15,
+  },
+  eyeIcon: {
+    position: 'absolute',
+    right: 10,
+    top: 12,
+    zIndex: 1,
   },
 });

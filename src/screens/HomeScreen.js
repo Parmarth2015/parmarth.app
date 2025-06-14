@@ -262,10 +262,10 @@ const HomeScreen = () => {
           </View>
           <View style={styles.featureBox}>
             <View style={styles.featureIconContainer}>
-              <FontAwesome5 name="seedling" size={32} color="#fff" />
+              <FontAwesome5 name="hands-helping" size={32} color="#fff" />
             </View>
-            <Text style={styles.featureTitle}>1000+</Text>
-            <Text style={styles.featureDesc}>trees planted</Text>
+            <Text style={styles.featureTitle}>200+</Text>
+            <Text style={styles.featureDesc}>Volunteers</Text>
           </View>
         </View>
       </View>
@@ -516,7 +516,6 @@ const styles = StyleSheet.create({
     marginTop: height * 0.005,
   },
   statsSection: {
-
     marginTop: 24,
     paddingHorizontal: 16,
     marginBottom: 32,
@@ -532,7 +531,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#fff",
     marginBottom: 20,
-
     marginTop: height * 0.02,
     paddingHorizontal: width * 0.04,
     paddingBottom: height * 0.02,
@@ -542,17 +540,17 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#002855',
     marginBottom: height * 0.02,
-
     textAlign: 'center',
   },
   statsContainer: {
+    
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
   statCard: {
-
     width: "48%",
+    height: 250,
     borderRadius: 16,
     marginBottom: 16,
     elevation: 3,
@@ -563,8 +561,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   statCardGradient: {
-    padding: 16,
-    borderRadius: 16,
+    // padding: 16,
+    // borderRadius: 16,
 
     width: width * 0.43,
     backgroundColor: '#fff',
@@ -576,7 +574,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
+    height: 250,
+    justifyContent: 'space-between',
   },
   statIconContainer: {
     width: Math.min(width * 0.1, 40),
