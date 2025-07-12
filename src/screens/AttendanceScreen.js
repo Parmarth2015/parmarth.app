@@ -147,7 +147,7 @@ const AttendanceScreen = () => {
       setClassWise(classGroups.map(group => ({ className: group, count: "" })));
       setPhotos([]);
     } catch (error) {
-      console.error('Error details:', error);
+      // console.error('Error details:', error);
       Alert.alert(
         "Error", 
         error.message || "Network request failed. Please check your connection and try again."

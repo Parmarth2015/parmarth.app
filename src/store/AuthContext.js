@@ -102,11 +102,19 @@ export const AuthContextProvider = (props) => {
     await AsyncStorage.setItem("userId", userId);
     await AsyncStorage.setItem("loginMethod", loginMethod);
 
-    const remainingTime = calculateRemainingTime(expirationTime);
-    if (logoutTimer) {
-      clearTimeout(logoutTimer);
+    if (loginMethod === "otp") {
+      // Only set logout timer for OTP login
+      const remainingTime = calculateRemainingTime(expirationTime);
+      if (logoutTimer) {
+        clearTimeout(logoutTimer);
+      }
+      logoutTimer = setTimeout(logoutHandler, remainingTime);
+    } else {
+      // For password login, do not set logout timer
+      if (logoutTimer) {
+        clearTimeout(logoutTimer);
+      }
     }
-    logoutTimer = setTimeout(logoutHandler, remainingTime);
   };
 
   // Add session check interval
@@ -118,13 +126,14 @@ export const AuthContextProvider = (props) => {
       }
     };
 
-    // Check session every 45 minutes
-    const sessionCheckInterval = setInterval(checkSession, 45 * 60 * 1000);
-
-    return () => {
-      clearInterval(sessionCheckInterval);
-    };
-  }, [logoutHandler]);
+    // Only check session for OTP login
+    if (loginMethod === "otp") {
+      const sessionCheckInterval = setInterval(checkSession, 45 * 60 * 1000);
+      return () => {
+        clearInterval(sessionCheckInterval);
+      };
+    }
+  }, [logoutHandler, loginMethod]);
 
   useEffect(() => {
     const fetchToken = async () => {
@@ -133,10 +142,16 @@ export const AuthContextProvider = (props) => {
       if (tokenData) {
         setToken(tokenData.token);
         setLoginMethod(tokenData.loginMethod);
-        if (logoutTimer) {
-          clearTimeout(logoutTimer);
+        if (tokenData.loginMethod === "otp") {
+          if (logoutTimer) {
+            clearTimeout(logoutTimer);
+          }
+          logoutTimer = setTimeout(logoutHandler, tokenData.duration);
+        } else {
+          if (logoutTimer) {
+            clearTimeout(logoutTimer);
+          }
         }
-        logoutTimer = setTimeout(logoutHandler, tokenData.duration);
       }
     };
 

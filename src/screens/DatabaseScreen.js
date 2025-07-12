@@ -31,7 +31,6 @@ const DatabaseScreen = () => {
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <StatusBar barStyle="light-content" />
       <LinearGradient
         colors={['#002855', '#003f88']}
         style={styles.header}

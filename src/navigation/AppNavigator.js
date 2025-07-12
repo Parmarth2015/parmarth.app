@@ -26,10 +26,8 @@ const StudyStack = createStackNavigator();
 function StudyMaterialStack() {
   return (
     <>
-      <StatusBar
-        backgroundColor="#000"
-        barStyle="light-content"
-      />
+       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      
       <StudyStack.Navigator screenOptions={{
         headerStyle: {
           backgroundColor: '#fff',
@@ -101,10 +99,7 @@ const DbStack = createStackNavigator();
 function DatabaseStack() {
   return (
     <>
-      <StatusBar
-        backgroundColor="#000"
-        barStyle="light-content"
-      />
+       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <DbStack.Navigator screenOptions={{
         headerStyle: {
           backgroundColor: '#fff',
@@ -170,10 +165,7 @@ const EvStack = createStackNavigator();
 function EventStack() {
   return (
     <>
-      <StatusBar
-        backgroundColor="#000"
-        barStyle="light-content"
-      />
+       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <EvStack.Navigator screenOptions={{
         headerStyle: {
           backgroundColor: '#fff',
@@ -236,10 +228,8 @@ const HomeStack = createStackNavigator();
 function HomeStackScreen() {
   return (
     <>
-      <StatusBar
-        backgroundColor="#000"
-        barStyle="light-content"
-      />
+      
+         <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <HomeStack.Navigator 
         screenOptions={{
           headerStyle: {
@@ -313,10 +303,7 @@ const AppNavigator = () => {
 
   return (
     <>
-      <StatusBar
-        backgroundColor="#000"
-        barStyle="light-content"
-      />
+       <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
       <Tab.Navigator
         screenOptions={({ route, navigation }) => ({
           headerStyle: {
