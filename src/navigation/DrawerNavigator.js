@@ -186,9 +186,9 @@ const CustomDrawerContent = (props) => {
       } else if (resData.token) {
         const expirationTime = new Date();
         if (method === "password") {
-          expirationTime.setMinutes(expirationTime.getMinutes() + 5); // 5 minutes for password login
+          expirationTime.setHours(expirationTime.getHours() + 24); // 24 hours for password login
         } else {
-          expirationTime.setMinutes(expirationTime.getMinutes() + 1); // 1 minute for OTP
+          expirationTime.setHours(expirationTime.getHours() + 1); // 1 hour for OTP
         }
 
         authCtx.login(
