@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "Parmarth",
+    "name": "PARMARTH",
     "slug": "parmarth-app",
-    "version": "1.0.0",
+    "version": "1.0.7",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -21,6 +21,9 @@
         "backgroundColor": "#FFFFFF"
       },
       "edgeToEdgeEnabled": true,
+      "targetSdkVersion": 34,
+      "compileSdkVersion": 34,
+      "versionCode": 13,
       "permissions": [
         "android.permission.CAMERA",
         "android.permission.READ_EXTERNAL_STORAGE",
